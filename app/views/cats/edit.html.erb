@@ -1,0 +1,27 @@
+<h1>Cat Repair</h1>
+
+<h3>Change it up!</h3>
+
+<form action = "<%=cats_url%>" method = "post" >
+	<label for = "cat_name">Cat Name</label>
+	<input type = "text" name = "cat[name]"
+	id = "cat_name" value="<%= @cat.name%>"><br><br>
+
+	<label for = "cat_birthday">Birthday</label>
+	<input type = "date" name = "cat[birth_date]" id = "cat_birthday"
+	value="<%= @cat.birth_date%>"><br><br>
+
+	<label for = "cat_color">Color</label>
+	<input type = "text" name = "cat[color]" id = "cat_color"
+	value="<%= @cat.color%>"><br><br>
+
+	<label for ="cat_male">Male</label>
+	<input type = "radio" name = "cat[sex]" value = "Male" id = "cat_male"
+	value="<%= @cat.name%>" <%= "checked" if @cat.sex == "Male" %> >
+	<label for ="cat_female">Female</label>
+	<input type = "radio" name = "cat[sex]" value = "Female" id = "cat_female"
+	<%= "checked" if @cat.sex == "Female" %>>
+	<br><br>
+	<input type = "submit" value = "Make my cat!">
+
+</form>

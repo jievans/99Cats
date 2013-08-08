@@ -1,0 +1,22 @@
+<h1>Cat Factory</h1>
+
+<h3>Create a new cat!</h3>
+
+<form action = "<%=cats_url%>" method = "post" >
+	<label for = "cat_name">Cat Name</label>
+	<input type = "text" name = "cat[name]" id = "cat_name"><br><br>
+
+	<label for = "cat_birthday">Birthday</label>
+	<input type = "date" name = "cat[birth_date]" id = "cat_birthday"><br><br>
+
+	<label for = "cat_color">Color</label>
+	<input type = "text" name = "cat[color]" id = "cat_color"><br><br>
+
+	<label for ="cat_male">Male</label>
+	<input type = "radio" name = "cat[sex]" value = "Male" id = "cat_male">
+	<label for ="cat_female">Female</label>
+	<input type = "radio" name = "cat[sex]" value = "Female" id = "cat_male">
+	<br><br>
+	<input type = "submit" value = "Make my cat!">
+
+</form>
