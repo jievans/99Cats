@@ -11,13 +11,24 @@
 
 <%= link_to "Index", cats_url %>
 
-<h2>These are the current requests for <%= @cat.name %></h2>
+<h2>These are the undecided requests for <%= @cat.name %></h2>
 
 <ul>
-<% @cat.cat_rental_requests.each do |request|%>
+<% @undecided.each do |request|%>
 <li>Begin Date: <%= request.begin_date %> </li>
 <li>End Date: <%= request.end_date %> </li>
 <li>Status: <%= request.status %> </li>
-<br />
+
+	<form action = "<%=cat_rental_request_url(request)%>" method = "post">
+		<input type="hidden" name = "_method" value = "PUT">
+		<input type="hidden" name = "cr[status]" value = "approved">
+		<input type= "submit" value = "Approve" >
+	</form>
+	<form action = "<%=cat_rental_request_url(request)%>" method = "post">
+		<input type="hidden" name = "_method" value = "PUT">
+		<input type="hidden" name = "cr[status]" value = "denied">
+		<input type= "submit" value = "Deny" >
+	</form>
+	<br />
 <% end %>
 </ul>

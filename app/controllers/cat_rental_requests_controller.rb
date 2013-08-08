@@ -9,4 +9,11 @@ class CatRentalRequestsController < ApplicationController
     redirect_to cat_url(cat)
   end
 
+  def update
+    request = CatRentalRequest.find(params[:id])
+    request.update_attributes!(:status => params[:cr][:status])
+    cat = Cat.find(request.cat_id)
+    redirect_to cat_url(cat)
+  end
+
 end

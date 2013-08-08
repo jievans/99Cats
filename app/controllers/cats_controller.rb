@@ -7,6 +7,9 @@ class CatsController < ApplicationController
 
   def show
     @cat = Cat.find(params[:id])
+    @undecided = @cat.cat_rental_requests
+                     .where("status = 'undecided'")
+                     .order(:begin_date)
     render :show
   end
 

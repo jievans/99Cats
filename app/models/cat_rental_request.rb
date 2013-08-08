@@ -17,4 +17,8 @@ class CatRentalRequest < ActiveRecord::Base
     puts "Cat Rental Request #{self.id} destroyed"
   end
 
+  def approve
+    self.status = avaliable? ? "approved" : "denied"
+  end
+
 end
