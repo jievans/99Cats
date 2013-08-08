@@ -1,0 +1,12 @@
+<h1>Welcome to the home page for <%= @cat.name %></h1>
+
+<ul>
+	<li><%= @cat.name %> </li>
+	<li><%= @cat.age %> </li>
+	<li><%= @cat.color %> </li>
+	<li><%= @cat.sex %> </li>
+	<li><%= @cat.birth_date %> </li>
+	<li>Loyal user since: <%= @cat.created_at %> </li>
+</ul>
+
+<%= link_to "Index", cats_url %>
