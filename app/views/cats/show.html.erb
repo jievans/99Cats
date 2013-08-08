@@ -10,3 +10,14 @@
 </ul>
 
 <%= link_to "Index", cats_url %>
+
+<h2>These are the current requests for <%= @cat.name %></h2>
+
+<ul>
+<% @cat.cat_rental_requests.each do |request|%>
+<li>Begin Date: <%= request.begin_date %> </li>
+<li>End Date: <%= request.end_date %> </li>
+<li>Status: <%= request.status %> </li>
+<br />
+<% end %>
+</ul>

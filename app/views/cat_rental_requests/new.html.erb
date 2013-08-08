@@ -1,0 +1,27 @@
+<h1>Rent a Cat?</h1>
+
+<form action = "<%=cat_rental_requests_url%>" method = "post" >
+
+	<!-- :begin_date, :cat_id, :end_date, :status -->
+
+	<label for ="cr_cat_id">Cat Name</label>
+	<select name ="cr[cat_id]" id="cr_cat_id">
+
+		<% @all_cats.each do |cat|%>
+		<option value="<%=cat.id %>"><%=cat.name %></option>
+		<%end%>
+
+	</select>
+
+	<br />
+	<br />
+
+	<label for = "cr_begin_date">Begin Date</label>
+	<input type = "date" name = "cr[begin_date]" id = "cr_begin_date"><br><br>
+
+	<label for = "cr_end_date">End Date</label>
+	<input type = "date" name = "cr[end_date]" id = "cr_end_date"><br><br>
+
+	<input type = "submit" value = "File request!">
+
+</form>

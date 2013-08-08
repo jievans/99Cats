@@ -23,4 +23,10 @@ class CatsController < ApplicationController
     @cat = Cat.find(params[:id])
   end
 
+  def update
+    cat = Cat.find(params[:id])
+    cat.update_attributes!(params[:cat])
+    redirect_to cat_url(cat)
+  end
+
 end
