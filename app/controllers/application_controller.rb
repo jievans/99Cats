@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
+    puts @current_user
     redirect_to new_session_url unless current_user
   end
 

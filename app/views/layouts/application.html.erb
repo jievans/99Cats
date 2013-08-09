@@ -8,6 +8,9 @@
 </head>
 <body>
 <h2>Logged in as: <%= @current_user.username unless @current_user.nil? %></h2>
+<% flash.each do |key, value|%>
+<div><%= value %></div>
+<% end %>
 <%= yield %>
 </body>
 </html>

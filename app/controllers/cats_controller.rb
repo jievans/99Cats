@@ -7,6 +7,7 @@ class CatsController < ApplicationController
 
   def show
     @cat = Cat.find(params[:id])
+    @owner = current_user.id == @cat.id
     @undecided = @cat.cat_rental_requests
                      .where("status = 'undecided'")
                      .order(:begin_date)
@@ -18,8 +19,10 @@ class CatsController < ApplicationController
   end
 
   def create
+    params[:cat][:user_id] = current_user.id
     cat = Cat.create!(params[:cat])
-    redirect_to cat_url cat
+    puts cat_url(cat)
+    redirect_to cat_url(cat)
   end
 
   def edit
@@ -28,7 +31,11 @@ class CatsController < ApplicationController
 
   def update
     cat = Cat.find(params[:id])
-    cat.update_attributes!(params[:cat])
+    if cat.user_id == current_user.id
+      cat.update_attributes!(params[:cat])
+    else
+      flash[:errors] = "You can't edit a cat you don't own!"
+    end
     redirect_to cat_url(cat)
   end
 

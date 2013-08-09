@@ -1,6 +1,7 @@
 <h1>Better login</h1>
 
 <form action = "<%=session_url%>" method="post">
+	<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
 	<label for = "session_username" > Username </label>
 		<input type = "text" id = "session_username" name = "session[username]">
 		<br><br>
