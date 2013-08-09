@@ -1,4 +1,5 @@
 class CatRentalRequestsController < ApplicationController
+
   def new
     @all_cats = Cat.all
   end

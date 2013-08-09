@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130808203403) do
+ActiveRecord::Schema.define(:version => 20130808223602) do
 
   create_table "cat_rental_requests", :force => true do |t|
     t.integer  "cat_id",                              :null => false
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(:version => 20130808203403) do
     t.string   "color"
     t.string   "name"
     t.string   "sex"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "username"
+    t.string   "password"
+    t.string   "token"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
